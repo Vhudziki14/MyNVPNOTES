@@ -1,0 +1,116 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MyNVPNOTES" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="colorSecondaryVariant">@color/warning_orange</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here -->
+        <item name="android:windowBackground">@color/background_gray</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- Button styles -->
+        <item name="materialButtonStyle">@style/Widget.MyNVPNOTES.Button</item>
+        <item name="buttonStyle">@style/Widget.MyNVPNOTES.Button</item>
+
+        <!-- EditText styles -->
+        <item name="editTextStyle">@style/Widget.MyNVPNOTES.EditText</item>
+
+        <!-- Card styles -->
+        <item name="materialCardViewStyle">@style/Widget.MyNVPNOTES.Card</item>
+    </style>
+
+    <!-- Custom Button Style -->
+    <style name="Widget.MyNVPNOTES.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primary_color</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="elevation">2dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Secondary Button Style -->
+    <style name="Widget.MyNVPNOTES.Button.Secondary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeColor">@color/primary_color</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="elevation">1dp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Delete Button Style -->
+    <style name="Widget.MyNVPNOTES.Button.Delete" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/error_red</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="elevation">2dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- EditText Style -->
+    <style name="Widget.MyNVPNOTES.EditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textSize">16sp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+    </style>
+
+    <!-- Card Style -->
+    <style name="Widget.MyNVPNOTES.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <!-- TextInputLayout Style -->
+    <style name="Widget.MyNVPNOTES.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="hintTextColor">@color/text_hint</item>
+        <item name="boxStrokeColor">@color/primary_color</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextAppearance">@style/TextAppearance.MyNVPNOTES.Hint</item>
+    </style>
+
+    <!-- Hint Text Appearance -->
+    <style name="TextAppearance.MyNVPNOTES.Hint" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- No Action Bar Theme -->
+    <style name="Theme.MyNVPNOTES.NoActionBar" parent="Theme.MyNVPNOTES">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Full Screen Theme -->
+    <style name="Theme.MyNVPNOTES.FullScreen" parent="Theme.MyNVPNOTES.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

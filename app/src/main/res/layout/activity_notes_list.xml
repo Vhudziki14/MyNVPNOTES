@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_gray">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/header_gradient"
+        android:padding="12dp"
+        android:elevation="4dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Notes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Notes List Container -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNoNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No notes yet!\n\nTap the button below to create your first note 📝"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/layoutNotesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Action Buttons at Bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:elevation="4dp">
+
+        <!-- Add Note Button -->
+        <Button
+            android:id="@+id/btnAddNote"
+            style="@style/Widget.MyNVPNOTES.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+ Add New Note"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Widget.MyNVPNOTES.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="← Back to Dashboard" />
+
+    </LinearLayout>
+
+</LinearLayout>
