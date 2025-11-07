@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -70,6 +71,12 @@
             android:theme="@style/Theme.MyNVPNOTES"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
+        <!-- ADD THIS RECEIVER BLOCK -->
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <!-- END OF BLOCK TO ADD -->
 
     </application>
 

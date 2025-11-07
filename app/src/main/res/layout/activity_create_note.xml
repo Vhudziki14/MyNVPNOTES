@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -17,16 +18,17 @@
 
         <!-- Title -->
         <TextView
+            android:id="@+id/header_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Create Note"
+            android:text="Create Reminder"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:gravity="center" />
 
-        <!-- Delete Button -->
+        <!-- Delete Button (remains hidden for new notes) -->
         <Button
             android:id="@+id/btnDelete"
             style="@style/Widget.MyNVPNOTES.Button.Delete"
@@ -37,81 +39,115 @@
 
     </LinearLayout>
 
-    <!-- Note Form -->
-    <LinearLayout
+    <!-- ScrollView for the form content to prevent overflow on smaller screens -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:layout_weight="1">
 
-        <!-- Note Title Section -->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Note Title"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/text_primary"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            android:padding="12dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.MyNVPNOTES.TextInputLayout"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etNoteTitle"
+            <!-- Note Title Section -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter note title..."
+                android:text="Note Title"
                 android:textSize="16sp"
-                android:textStyle="normal"
-                android:textColor="@color/black"
-                android:textColorHint="@color/text_secondary"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Note Content Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Note Content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/text_primary"
-            android:layout_marginBottom="8dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            style="@style/Widget.MyNVPNOTES.TextInputLayout"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etNoteContent"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Write your note content here..."
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:minLines="8"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/text_secondary"
-                android:scrollbars="vertical" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MyNVPNOTES.TextInputLayout"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNoteTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter note title..."
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_secondary"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Note Content Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note Content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MyNVPNOTES.TextInputLayout"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNoteContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Write your note content here..."
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:minLines="5"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_secondary"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            <!-- *** NEW: IMAGE PREVIEW *** -->
+            <!--suppress AndroidDomInspection -->
+            <ImageView
+                android:id="@+id/note_image_preview"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/image_placeholder_background"
+                android:visibility="gone" />
+
+            <!-- *** NEW: ATTACH FILE BUTTON *** -->
+            <Button
+                android:id="@+id/btnAttachFile"
+                style="@style/Widget.MyNVPNOTES.Button.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Attach Image"/>
+
+            <!-- *** NEW: REMINDER TOGGLE *** -->
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/reminder_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Enable Reminder"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <!-- Action Buttons -->
     <LinearLayout
